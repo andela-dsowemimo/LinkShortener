@@ -36,6 +36,8 @@ gem 'rspec-collection_matchers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'pry'
+  gem 'pry-nav'
   gem 'byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
