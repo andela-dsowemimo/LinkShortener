@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: "staticpages#index"
+
   # get 'links/new'
   #
   # get 'links/create'
