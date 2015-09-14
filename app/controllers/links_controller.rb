@@ -3,7 +3,7 @@ require 'securerandom'
 class LinksController < ApplicationController
   def index
     @link = Link.new
-    @links = Link.all
+    @links = Link.all.recent_sort
   end
 
   def new
@@ -11,7 +11,6 @@ class LinksController < ApplicationController
   end
 
   def create
-    # require 'pry'; binding.pry
     @link = Link.new(link_params)
     @link.shortened_link_address = SecureRandom.urlsafe_base64(8)
     if @link.save
