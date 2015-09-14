@@ -1,0 +1,9 @@
+<%= form_for @link, remote: true do |f| %>
+  <%= f.text_field :full_link_address %>
+  <%= f.submit "Shorten link" %>
+<% end %>
+
+<h1>Links</h1>
+<div id="links">
+  <%= render @links %>
+</div>
