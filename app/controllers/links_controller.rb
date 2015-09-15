@@ -7,7 +7,6 @@ class LinksController < ApplicationController
   end
 
   def create
-    require 'pry'; binding.pry
     @link = Link.new(link_params)
     @link.shortened_link_address = SecureRandom.urlsafe_base64(8)
     if @link.save
@@ -20,7 +19,7 @@ class LinksController < ApplicationController
   end
 
   def show
-
+    @link = Link.find(params[:id])
   end
 
   def visit_webpage

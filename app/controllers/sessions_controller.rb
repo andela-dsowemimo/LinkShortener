@@ -14,6 +14,6 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out
-    redirect_to "localhost:3000"
+    redirect_to root_url
   end
 end
