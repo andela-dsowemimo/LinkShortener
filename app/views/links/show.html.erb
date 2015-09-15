@@ -2,3 +2,6 @@
 <h2><%= @link.full_link_address %></h2>
 <h3>Created by <%= get_link_creator_name @link %></h3>
 <p>Total Visits <%= @link.visits %></p>
+<p>Chrome visits <%= @link.statistic.browser["Chrome"] ||= 0 %></p>
+<p>Safari visits <%= @link.statistic.browser["Safari"] ||= 0 %></p>
+<p>Firefox visits <%= @link.statistic.browser["Firefox"] ||= 0 %></p>

@@ -1,5 +1,5 @@
 require 'securerandom'
-
+require 'browser'
 
 class LinksController < ApplicationController
 
@@ -27,11 +27,12 @@ class LinksController < ApplicationController
   def visit_webpage
     @link = Link.find_by(shortened_link_address: params[:shortened_link_address])
     @link.increment_visits
-    get_browser
+    @link.get_browser_count(browser.name)
+    # @link.get_device_count(browser.platform)
     # puts request.location.country_name
     redirect_to @link.full_link_address
   end
-  
+
 
   private
   def link_params
