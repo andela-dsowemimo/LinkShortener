@@ -26,7 +26,9 @@ class LinksController < ApplicationController
   end
 
   def visit_webpage
+    require 'pry'; binding.pry
     @link = Link.find_by(shortened_link_address: params[:shortened_link_address])
+    @link.views +=1
     redirect_to @link.full_link_address
   end
 
