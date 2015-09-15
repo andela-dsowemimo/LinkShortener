@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root to: "staticpages#index"
+  get ":shortened_link_address" => "links#visit_webpage"
+  root to: "links#index"
 
   # get 'links/new'
   #
@@ -17,7 +18,6 @@ Rails.application.routes.draw do
   resources :users
   resources :links
 
-  get ":shortened_link_address" => "links#visit_webpage"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

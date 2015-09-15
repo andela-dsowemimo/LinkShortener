@@ -1,9 +1,32 @@
-<%= form_for @link, remote: true do |f| %>
-  <%= f.text_field :full_link_address %>
-  <%= f.submit "Shorten link" %>
-<% end %>
-
-<h1>Links</h1>
-<div id="links">
-  <%= render @links %>
+<!-- Header -->
+<a name="about"></a>
+<div class="intro-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="intro-message">
+          <h1>Concise</h1>
+          <h3>The Best URL Link Shortener Available</h3>
+          <hr class="intro-divider">
+          <%= form_for @link, remote: true do |f| %>
+            <%= f.text_field :full_link_address, class: "form-control" %>
+            <%= f.submit "Shorten", class: "btn btn-primary" %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- /.container -->
 </div>
+<!-- /.intro-header -->
+
+<!-- Page Content -->
+
+<div class="content-section-a">
+  <h1>Links</h1>
+  <div id="links">
+    <%= render @links %>
+  </div>
+    <!-- /.container -->
+</div>
+<!-- /.content-section-a -->
