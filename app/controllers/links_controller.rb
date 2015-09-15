@@ -5,7 +5,7 @@ class LinksController < ApplicationController
 
   def index
     @link = Link.new
-    @links = Link.all.recent_sort
+    @links = (Link.all.popularity).page(params[:page]).per(5)
   end
 
   def create

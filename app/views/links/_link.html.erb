@@ -1,4 +1,5 @@
 <div>
   <p><%= link.full_link_address %></p>
-  <p><%= "#{root_url}#{link.shortened_link_address}" %>  <%= link_to "Details", link %> </p>
+  <p><%= "#{root_url}#{link.shortened_link_address}" %>  <i><%= link.visits %> visits</i>
+    <%= link_to "Details", link %> </p>
 </div>
