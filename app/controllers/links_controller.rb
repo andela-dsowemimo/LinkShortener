@@ -2,6 +2,7 @@ require 'securerandom'
 
 
 class LinksController < ApplicationController
+
   def index
     @link = Link.new
     @links = Link.all.recent_sort
@@ -26,9 +27,11 @@ class LinksController < ApplicationController
   def visit_webpage
     @link = Link.find_by(shortened_link_address: params[:shortened_link_address])
     @link.increment_visits
-    puts request.location.country_name
+    get_browser
+    # puts request.location.country_name
     redirect_to @link.full_link_address
   end
+  
 
   private
   def link_params
