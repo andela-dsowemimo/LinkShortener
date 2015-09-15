@@ -11,14 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150911122257) do
+ActiveRecord::Schema.define(version: 20150915102142) do
 
   create_table "links", force: :cascade do |t|
     t.string   "full_link_address"
     t.string   "shortened_link_address"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "views"
+    t.integer  "visits",                 default: 0
+    t.integer  "user_id"
   end
+
+  add_index "links", ["user_id"], name: "index_links_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

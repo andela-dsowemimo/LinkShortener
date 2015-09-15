@@ -6,14 +6,12 @@ class LinksController < ApplicationController
     @links = Link.all.recent_sort
   end
 
-  def new
-    @link = Link.new
-  end
-
   def create
+    require 'pry'; binding.pry
     @link = Link.new(link_params)
     @link.shortened_link_address = SecureRandom.urlsafe_base64(8)
     if @link.save
+      current_user.links << @link  if logged_in?
       respond_to do |format|
         format.html {}
         format.js {}
@@ -27,6 +25,7 @@ class LinksController < ApplicationController
 
   def visit_webpage
     @link = Link.find_by(shortened_link_address: params[:shortened_link_address])
+    @link.increment_visits
     redirect_to @link.full_link_address
   end
 
