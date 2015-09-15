@@ -4,10 +4,11 @@ class LinksController < ApplicationController
   def index
     @link = Link.new
     @links = Link.all.recent_sort
+    # @link_count = @links.page(params[:page]).per(1)
   end
 
   def new
-    @link = Link.new
+    # @link = Link.new
   end
 
   def create

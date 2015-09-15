@@ -6,6 +6,10 @@ gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+gem 'kaminari'
+
+gem 'geocoder'
+
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 # Use SCSS for stylesheets
