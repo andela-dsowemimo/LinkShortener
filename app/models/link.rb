@@ -5,10 +5,6 @@ class Link < ActiveRecord::Base
   scope :recent_sort, -> {order("created_at desc")}
   scope :popularity, -> {order("visits desc")}
 
-  def sort_by
-
-  end
-
   def create_statistic
     self.statistic ||= Statistic.new
     self.statistic.browser ||= Hash.new(0)
