@@ -1,0 +1,7 @@
+$(function($) {
+    $("#sort_id").change(function() {
+        alert($(this).val());
+        valu = $(this).val();
+        $.get("/sort/"+valu)
+    });
+});

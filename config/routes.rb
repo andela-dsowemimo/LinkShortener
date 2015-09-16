@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # get 'links/create'
   root to: "links#index"
 
+  get "sort/:value" => "links#sort_links", as: "sort"
   get "signup" => "users#new"
   get "login" => "sessions#new"
   post "login" => "sessions#create"

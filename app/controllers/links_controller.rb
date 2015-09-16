@@ -5,7 +5,12 @@ class LinksController < ApplicationController
 
   def index
     @link = Link.new
-    @links = (Link.all.popularity).page(params[:page]).per(5)
+    @links = Link.all.most_recent
+    @links.page(params[:page]).per(5)
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
   end
 
   def create
@@ -28,11 +33,18 @@ class LinksController < ApplicationController
     @link = Link.find_by(shortened_link_address: params[:shortened_link_address])
     @link.increment_visits
     @link.get_browser_count(browser.name)
-    # @link.get_device_count(browser.platform)
-    # puts request.location.country_name
     redirect_to @link.full_link_address
   end
 
+  def sort_links
+    case params[:value].to_i
+      when 1 then @links = Link.all.most_recent
+      when 2 then @links = Link.all.most_popular
+    end
+    respond_to do |format|
+      format.js {}
+    end
+  end
 
   private
   def link_params

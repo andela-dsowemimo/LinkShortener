@@ -3,20 +3,11 @@
   <%= f.submit "Shorten link" %>
 <% end %>
 
-<%= select_tag(:sort_id,
-  options_for_select([["Sort by Date", 1],["Sort by Popularity", 2]]),
-  onchange: :myFunction
+<%= select_tag(:sort_id, 
+  options_for_select([["Sort by Date", 1],["Sort by Popularity", 2]])
 ) %>
 
 <h1>Links</h1>
 <div id="links">
   <%= render @links %>
 </div>
-  <%= paginate @links %>
-
-<script>
-function myFunction() {
-    <%= puts "Hello there" %>
-    alert("OKK");
-}
-</script>
