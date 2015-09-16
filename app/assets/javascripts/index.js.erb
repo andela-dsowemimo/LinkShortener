@@ -1,7 +1,6 @@
 $(function($) {
     $("#sort_id").change(function() {
-        alert($(this).val());
-        valu = $(this).val();
-        $.get("/sort/"+valu)
+        sort_reference = $(this).val();
+        $.get("/sort/"+sort_reference)
     });
 });
