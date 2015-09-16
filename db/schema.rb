@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915125905) do
+ActiveRecord::Schema.define(version: 20150916212003) do
 
   create_table "links", force: :cascade do |t|
     t.string   "full_link_address"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150915125905) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "link_id"
+    t.string   "users"
   end
 
   add_index "statistics", ["link_id"], name: "index_statistics_on_link_id"

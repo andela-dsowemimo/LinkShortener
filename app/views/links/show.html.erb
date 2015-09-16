@@ -5,23 +5,23 @@
     </h1>
     <ol class="breadcrumb">
       <li class="active">
-        <i class="fa fa-dashboard"></i> Original URL: <%= @link.full_link_address %>
+        <i class="fa fa-dashboard"></i><strong>Original URL:</strong> <%= @link.full_link_address %>
       </li>
     </ol>
     <ol class="breadcrumb">
       <li class="active">
-        <i class="fa fa-dashboard"></i> Shortened URL: <%= "#{root_url}" + @link.shortened_link_address %>
+        <i class="fa fa-dashboard"></i><strong>Shortened URL:</strong> <%= "#{root_url}" + @link.shortened_link_address %>
       </li>
     </ol>
     <ol class="breadcrumb">
       <li class="active">
-        <i class="fa fa-dashboard"></i> Created By: <%= get_link_creator_name @link %>
+        <i class="fa fa-dashboard"></i><strong>Created By:</strong> <%= get_link_creator_name @link %>
       </li>
     </ol>
   </div>
 </div>
 <h1 class="page-header">
-    Browser  <small>Visit Statistics</small>
+    Browser Visits <small>Statistics</small>
 </h1>
 <div class="row">
   <div class="col-lg-3 col-md-6">
@@ -115,4 +115,11 @@
         </a>
       </div>
     </div>
+
+    <h1 class="page-header">
+        Top Users <small>Statistics</small>
+    </h1>
+        <% @link.statistic.users.each do |user, count| %>
+          <%= user %> <%= count %>
+        <% end %>
   </div>
