@@ -32,7 +32,7 @@ class LinksController < ApplicationController
     @link = Link.find_by(shortened_link_address: params[:shortened_link_address])
     @link.increment_visits
     @link.get_browser_count(browser.name)
-    @link.get_user_count(current_user.name) if logged_in?
+    logged_in? ? @link.get_user_count(current_user.name) : @link.get_user_count("Anonymous Users") 
     redirect_to @link.full_link_address
   end
 

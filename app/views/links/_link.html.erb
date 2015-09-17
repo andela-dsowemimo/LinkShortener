@@ -1,5 +1,5 @@
 <div>
-  <p><%= link.full_link_address %></p>
+  <p><%= truncate(link.full_link_address, length: 100)%></p>
   <p><%= "#{root_url}#{link.shortened_link_address}" %>  <i><%= link.visits %> visits</i>
     <%= link_to "Details", link %> </p>
 </div>
