@@ -18,7 +18,8 @@ class UsersController < ApplicationController
       log_in @user
       redirect_to(@user, notice: "Your Profile has been Successfully Created")
     else
-      render "new"
+      flash[:danger] = "Please provide a valid email address or password"
+      redirect_to(new_user_path)
     end
   end
 

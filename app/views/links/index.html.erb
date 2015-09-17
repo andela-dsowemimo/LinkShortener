@@ -55,3 +55,24 @@
 </div>
 <%= paginate @links %>
 </section>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+    function executeCopy(text) {
+      var input = document.createElement('textarea');
+      document.body.appendChild(input);
+      input.value = text;
+      input.focus();
+      input.select();
+      document.execCommand('Copy');
+      input.remove();
+    }
+
+    $(".copy-link").on("click", function(e){
+      e.preventDefault();
+      var link = $(this).attr("data-link");
+      executeCopy(link);
+    });
+  });
+</script>

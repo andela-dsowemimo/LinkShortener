@@ -1,5 +1,10 @@
 <div>
   <p><%= truncate(link.full_link_address, length: 100)%></p>
-  <p><%= "#{root_url}#{link.shortened_link_address}" %>  <span class="btn btn-info"><%= link.visits %> visits</span>
-    <%= link_to "Details", link, class: "btn btn-primary" %> </p>
+  <p><%= "#{root_url}#{link.shortened_link_address}" %></p>
+  <p><span class="btn btn-info"><%= link.visits %> visits</span>
+    <%= link_to "Details", link, class: "btn btn-primary" %>
+    <a class="btn btn-warning copy-link" role="button" tabindex="0" data-trigger="focus"
+      data-link="<%= "#{root_url}#{link.shortened_link_address}" %>"
+      data-toggle="popover" data-content="Copied">Copy</a></p>
+      <br/>
 </div>
