@@ -28,7 +28,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+
 gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 gem 'autoprefixer-rails'
 
 gem 'kaminari'

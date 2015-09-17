@@ -1,5 +1,5 @@
 <div>
   <p><%= truncate(link.full_link_address, length: 100)%></p>
-  <p><%= "#{root_url}#{link.shortened_link_address}" %>  <i><%= link.visits %> visits</i>
-    <%= link_to "Details", link %> </p>
+  <p><%= "#{root_url}#{link.shortened_link_address}" %>  <span class="btn btn-info"><%= link.visits %> visits</span>
+    <%= link_to "Details", link, class: "btn btn-primary" %> </p>
 </div>

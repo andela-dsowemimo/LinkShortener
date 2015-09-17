@@ -14,6 +14,6 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out
-    redirect_to root_url
+    redirect_to(root_url, notice: "You have Successfully Logged Out")
   end
 end

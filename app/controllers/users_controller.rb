@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      redirect_to @user
+      redirect_to(@user, notice: "Your Profile has been Successfully Created")
     else
       render "new"
     end
@@ -25,10 +25,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile Successfully Updated"
-      redirect_to @user
+      redirect_to(@user, notice: "Your Profile has been Successfully Updated")
     else
-      redirect_to @user
+      flash[:danger] = "Enter Valid Details! Your Profile Update was Unsuccessful"
+      redirect_to(@user)
     end
   end
 
