@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+
   end
 
   def create
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
       flash[:success] = "Profile Successfully Updated"
       redirect_to @user
     else
-      render "edit"
+      redirect_to @user
     end
   end
 
