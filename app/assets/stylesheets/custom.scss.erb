@@ -35,7 +35,7 @@ div#page-wrapper {
 .brand-heading {
   font-size: 75px;
   text-shadow: 5px 5px 20px black;
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 .intro-text {
@@ -43,17 +43,22 @@ div#page-wrapper {
   text-shadow: 5px 5px 10px black;
 }
 
-#download {
-  background: url(<%= asset_path("header.jpg") %>) no-repeat ;
+.link-text {
+  font-size: 15px;
 }
 
-.sort-selector {
-  position: relative;
-  right: 0px;
-}
+
+// .sort-selector {
+//   position: relative;
+//   right: 0px;
+// }
 
 #display_links {
   text-align: center;
+}
+
+.move-text-right {
+    text-align: left;
 }
 
 .new_link {
@@ -62,6 +67,8 @@ div#page-wrapper {
 
 #about {
   height: 300px;
+  width: 100%;
+  background: url(<%= asset_path("header.jpg") %>) no-repeat ;
   .col-lg-8 {
     margin-top: 50px;
     // vertical-align: middle;
@@ -98,7 +105,7 @@ input {
 
 .edit-details {
   position: relative;
-  left: 950px;
+  left: 900px;
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
@@ -112,6 +119,26 @@ input {
   // padding: 250px;
 }
 
+#login {
+  text-align: center;
+  h1 {
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+  .login_form_label {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 20px;
+  }
+  .form-control {
+    width: 40%;
+    position: relative;
+    left: 30%;
+  }
+  .btn {
+    color: white;
+  }
+}
 // .move_left {
 //   position: absolute;
 //   left: 0px;
