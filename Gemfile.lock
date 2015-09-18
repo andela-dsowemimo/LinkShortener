@@ -228,6 +228,7 @@ DEPENDENCIES
   pry-nav
   rails (= 4.2.3)
   rails_12factor
+  railties
   rspec-collection_matchers
   rspec-rails
   sass-rails (~> 5.0)
