@@ -58,7 +58,10 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $('[data-toggle="popover"]').popover();
+    $('[data-toggle="popover"]').popover({
+      html: true,
+      content: "Copied"
+    });
     function executeCopy(text) {
       var input = document.createElement('textarea');
       document.body.appendChild(input);

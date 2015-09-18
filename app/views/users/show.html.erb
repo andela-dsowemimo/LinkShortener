@@ -1,15 +1,14 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="show-page-wrapper">
 <h1><%= @user.name.titleize %></h1>
-<h1>Email: <%= @user.email %></h1>
+<h3>Email: <%= @user.email %></h3>
+<h4>You have shortened <%= pluralize @user.links.count, "link" %> <h4>
 <%= link_to "Edit Details", edit_user_path,
   {:remote => true, 'data-toggle' => "modal",
   'data-target' => '#myModal',
-  :class => "btn btn-primary", :id => "edit_profile"} %>
-<p>You have shortened <%= pluralize @user.links.count, "link" %> <p>
+  :class => "btn btn-primary edit-details", :id => "edit_profile"} %>
 
 <%if @user.links.any? %>
-<table class="table table-striped table-hover">
+<table class="table table-hover">
   <thead>
     <th>Original Link</th>
     <th>Shortened Link</th>
@@ -49,4 +48,5 @@
     </div>
 
   </div>
+</div>
 </div>
