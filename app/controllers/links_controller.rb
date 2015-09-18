@@ -18,10 +18,11 @@ class LinksController < ApplicationController
     if @link.save
       current_user.links << @link  if logged_in?
       respond_to do |format|
-        flash[:notice] = "Your link was Successfully Created"
-        format.html {}
         format.js {}
+        format.html {}
       end
+    else
+      flash[:danger] = "Please provide a valid URL"
     end
   end
 

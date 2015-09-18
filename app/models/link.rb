@@ -1,7 +1,9 @@
 class Link < ActiveRecord::Base
+  before_save :create_statistic
+  VALID_URL_REGEX = /((http|https)\:\/\/)?[a-zA-Z0-9\.\/\?\:@\-_=#]+\.([a-zA-Z0-9\.\/\?\:@\-_=#])*/
+  validates :full_link_address, format: {with: VALID_URL_REGEX }
   belongs_to :user
   has_one :statistic
-  before_save :create_statistic
   scope :most_recent, -> {order("created_at desc")}
   scope :most_popular, -> {order("visits desc")}
 

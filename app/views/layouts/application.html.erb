@@ -46,14 +46,15 @@
                 <% end %>
               </ul>
               <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-              
+
               <!-- /.navbar-collapse -->
           </nav>
           <div id="page-wrapper">
-            <% if flash[:notice] %>
+            <div id="flash-messages">
+            <% if flash[:notice] || flash[:success] %>
               <div class="alert alert-success">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <%= flash[:notice] %>
+                <%= flash[:notice] || flash[:success] %>
               </div>
             <% elsif flash[:danger] %>
               <div class="alert alert-danger">
@@ -61,6 +62,7 @@
                 <%= flash[:danger] %>
               </div>
             <% end %>
+          </div>
             <%= yield %>
           </div>
   </div>
