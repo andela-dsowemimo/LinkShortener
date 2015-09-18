@@ -227,13 +227,11 @@ DEPENDENCIES
   pry-nav
   rails (= 4.2.3)
   rails_12factor
-  railties
   rspec-collection_matchers
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
-  sqlite3
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
