@@ -1,3 +1,52 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<h1><%= @user.name %></h1>
+<div class="show-page-wrapper">
+<h1><%= @user.name.titleize %></h1>
+<h3>Email: <%= @user.email %></h3>
+<h4>You have shortened <%= pluralize @user.links.count, "link" %> <h4>
+<%= link_to "Edit Details", edit_user_path,
+  {:remote => true, 'data-toggle' => "modal",
+  'data-target' => '#myModal',
+  :class => "btn btn-primary edit-details", :id => "edit_profile"} %>
+
+<%if @user.links.any? %>
+<table class="table table-hover">
+  <thead>
+    <th>Original Link</th>
+    <th>Shortened Link</th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @user.links.each do |link| %>
+      <tr>
+        <td><%= link.full_link_address %></td>
+        <td><%= root_url %><%= link.shortened_link_address %></td>
+        <td><%= link_to "Details", link, class: "btn btn-primary" %></td>
+        <td><%= link_to "Delete", link, method: :delete,
+          data: {confirm: "Are you sure you want to delete this link?"}, class: "btn btn-danger"%>
+        <td>
+      </tr>
+  <% end %>
+
+</tbody>
+</table>
+<% end %>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" style="color:black;">Update Details</h4>
+      </div>
+      <div class="modal-body">
+        <%= render "layouts/user_form" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>

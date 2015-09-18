@@ -1,0 +1,129 @@
+<div class="row first_row">
+  <div class="col-lg-12">
+    <h1 class="page-header">
+          Link <small>Statistics Overview</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li class="active">
+        <i class="fa fa-dashboard"></i><strong>Original URL:</strong> <%= @link.full_link_address %>
+      </li>
+    </ol>
+    <ol class="breadcrumb">
+      <li class="active">
+        <i class="fa fa-dashboard"></i><strong>Shortened URL:</strong> <%= "#{root_url}" + @link.shortened_link_address %>
+      </li>
+    </ol>
+    <ol class="breadcrumb">
+      <li class="active">
+        <i class="fa fa-dashboard"></i><strong>Created By:</strong> <%= get_link_creator_name @link %>
+      </li>
+    </ol>
+  </div>
+</div>
+<h1 class="page-header">
+    Browser Visits <small>Statistics</small>
+</h1>
+<div class="row">
+  <div class="col-lg-3 col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-3">
+            <%= image_tag("ie_icon", class: "browser_icon") %>
+          </div>
+          <div class="col-xs-9 text-right">
+            Views
+            <div class="huge"><%= @link.statistic.browser["Explorer"] ||= 0 %></div>
+          </div>
+        </div>
+      </div>
+        <a href="#">
+          <div class="panel-footer">
+            <span class="pull-left">Internet Explorer</span>
+            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+            <div class="clearfix"></div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-green">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <%= image_tag("gc_icon", class: "browser_icon") %>
+            </div>
+            <div class="col-xs-9 text-right">
+              Views
+              <div class="huge"><%= @link.statistic.browser["Chrome"] ||= 0 %></div>
+            </div>
+          </div>
+        </div>
+        <a href="#">
+          <div class="panel-footer">
+            <span class="pull-left">Google Chrome</span>
+            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+            <div class="clearfix"></div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-yellow">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <%= image_tag("mf_icon", class: "browser_icon") %>
+            </div>
+            <div class="col-xs-9 text-right">
+              Views
+              <div class="huge"><%= @link.statistic.browser["Firefox"] ||= 0 %></div>
+            </div>
+          </div>
+        </div>
+        <a href="#">
+          <div class="panel-footer">
+            <span class="pull-left">Mozilla Firefox</span>
+            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+            <div class="clearfix"></div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-red">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <%= image_tag("s_icon", class: "browser_icon") %>
+            </div>
+            <div class="col-xs-9 text-right">
+              Views
+              <div class="huge"><%= @link.statistic.browser["Safari"] ||= 0 %></div>
+            </div>
+          </div>
+        </div>
+        <a href="#">
+          <div class="panel-footer">
+            <span class="pull-left">Safari</span>
+            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+            <div class="clearfix"></div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <h1 class="page-header">
+        Top Users <small>Statistics</small>
+    </h1>
+        <% @link.statistic.users.each do |user, count| %>
+          <%= user %> <%= count %>
+        <% end %>
+  </div>
+
+  <div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>

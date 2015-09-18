@@ -7,15 +7,17 @@ Rails.application.routes.draw do
   # get 'links/new'
   #
   # get 'links/create'
+  root to: "links#index"
 
+  get "sort/:value" => "links#sort_links", as: "sort"
+  get "signup" => "users#new"
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
-  get "signup" => "users#new"
   resources :users
   resources :links
-
   get ":shortened_link_address" => "links#visit_webpage"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
