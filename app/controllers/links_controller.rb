@@ -5,7 +5,7 @@ class LinksController < ApplicationController
 
   def index
     @link = Link.new
-    @links = (Link.all.most_recent).page(params[:page]).per(5)
+    @links = (Link.all.most_recent).page(params[:page]).per(10)
     respond_to do |format|
       format.html {}
       format.js {}
@@ -41,8 +41,8 @@ class LinksController < ApplicationController
 
   def sort_links
     case params[:value].to_i
-      when 1 then @links = (Link.all.most_recent).page(params[:page]).per(5)
-      when 2 then @links = (Link.all.most_popular).page(params[:page]).per(5)
+    when 1 then @links = (Link.all.most_recent).page(params[:page]).per(10)
+    when 2 then @links = (Link.all.most_popular).page(params[:page]).per(10)
     end
     respond_to do |format|
       format.js {}

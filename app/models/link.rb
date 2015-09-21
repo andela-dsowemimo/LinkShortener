@@ -4,8 +4,9 @@ class Link < ActiveRecord::Base
   validates :full_link_address, format: {with: VALID_URL_REGEX }
   belongs_to :user
   has_one :statistic
+
   scope :most_recent, -> {order("created_at desc")}
-  scope :most_popular, -> {order("visits desc")}
+  scope :most_popular, -> { order("visits desc") }
 
   def create_statistic
     self.statistic ||= Statistic.new

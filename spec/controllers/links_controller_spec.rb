@@ -23,9 +23,9 @@ RSpec.describe LinksController, type: :controller do
     end
   end
 
-  describe "GET #create" do
-    xit "returns http success" do
-      get :create
+  describe "POST #create" do
+    it "returns http success" do
+      post :create, link: attributes_for(:link)
       expect(response).to have_http_status(:success)
     end
   end

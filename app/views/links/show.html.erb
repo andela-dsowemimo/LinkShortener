@@ -7,17 +7,17 @@
     </h1>
     <ol class="breadcrumb">
       <li class="active">
-        <i class="fa fa-dashboard"></i> <strong>Original URL:</strong> <%= @link.full_link_address %>
+        <i class="fa fa-globe"></i> <strong>Original URL:</strong> <%= @link.full_link_address %>
       </li>
     </ol>
     <ol class="breadcrumb">
       <li class="active">
-        <i class="fa fa-dashboard"></i> <strong>Shortened URL:</strong> <%= "#{root_url}" + @link.shortened_link_address %>
+        <i class="fa fa-globe"></i> <strong>Shortened URL:</strong> <%= "#{root_url}" + @link.shortened_link_address %>
       </li>
     </ol>
     <ol class="breadcrumb">
       <li class="active">
-        <i class="fa fa-dashboard"></i> <strong>Created By:</strong> <%= get_link_creator_name @link %>
+        <i class="fa fa-user"></i> <strong>Created By:</strong> <%= get_link_creator_name @link %>
       </li>
     </ol>
   </div>

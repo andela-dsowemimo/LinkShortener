@@ -64,7 +64,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
-    database_cleaner (1.5.0)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
@@ -74,8 +73,6 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
-    faker (1.5.0)
-      i18n (~> 0.5)
     font-awesome-sass (4.4.0)
       sass (>= 3.2)
     geocoder (1.2.11)
@@ -214,9 +211,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.1.0)
-  database_cleaner
   factory_girl_rails
-  faker
   font-awesome-sass
   geocoder
   jbuilder (~> 2.0)
