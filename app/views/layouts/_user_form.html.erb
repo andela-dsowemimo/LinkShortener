@@ -1,11 +1,19 @@
 <%= form_for @user do |f| %>
-  <div class="row"><%= f.label :name, class: "col-md-4" %>
-  <%= f.text_field :name, class: "col-md-6" %></div></br>
-  <div class="row"><%= f.label :email, class: "col-md-4" %>
-  <%= f.text_field :email, class: "col-md-6" %></div><br/>
-  <div class="row"><%= f.label :password, class: "col-md-4" %>
-  <%= f.password_field :password, class: "col-md-6" %></div><br/>
-  <div class="row"><%= f.label :password_confirmation, class: "col-md-4" %>
-  <%= f.password_field :password_confirmation, class: "col-md-6" %></div><br/>
+  <div class="row">
+    <%= f.label :name, class: "col-md-4 user-form" %>
+    <%= f.text_field :name, class: "col-md-6" %>
+  </div></br>
+  <div class="row">
+    <%= f.label :email, class: "col-md-4 user-form" %>
+    <%= f.text_field :email, class: "col-md-6" %>
+  </div><br/>
+  <div class="row">
+    <%= f.label :password, class: "col-md-4 user-form" %>
+    <%= f.password_field :password, class: "col-md-6" %>
+  </div><br/>
+  <div class="row">
+    <%= f.label :password_confirmation, class: "col-md-4 user-form" %>
+    <%= f.password_field :password_confirmation, class: "col-md-6" %>
+  </div><br/>
   <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>

@@ -25,15 +25,13 @@ class Link < ActiveRecord::Base
     self.statistic.users[user_name] += 1
     self.statistic.save
   end
-  # def get_device_count(browser_platform)
-  #   self.statistic.browser[browser_platform] = 0 unless self.statistic.browser[browser_platform]
-  #   self.statistic.browser[browser_platform] += 1
-  #   self.statistic.save
-  # end
-
 
   def increment_visits
     self.visits +=1
     self.save
+  end
+
+  def sort_users(users)
+    users.sort_by{|user, count| -count }
   end
 end

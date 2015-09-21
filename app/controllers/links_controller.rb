@@ -28,6 +28,7 @@ class LinksController < ApplicationController
 
   def show
     @link = Link.find(params[:id])
+    @top_users = @link.sort_users(@link.statistic.users)
   end
 
   def visit_webpage

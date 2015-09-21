@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
   end
 
   it "is invalid without an email" do
-    expect(build(:user, email: nil)).to have(1).errors_on(:email)
+    expect(build(:user, email: nil)).to have(2).errors_on(:email)
   end
 
   it "is invalid witn a duplicate email" do
@@ -31,4 +31,5 @@ RSpec.describe User, type: :model do
     temi = build(:user, password: "together", password_confirmation: "not_together")
     expect(temi).to have(1).errors_on(:password_confirmation)
   end
+
 end

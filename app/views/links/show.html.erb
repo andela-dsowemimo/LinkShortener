@@ -1,21 +1,23 @@
+<div id="link-show-container">
 <div class="row first_row">
+
   <div class="col-lg-12">
     <h1 class="page-header">
           Link <small>Statistics Overview</small>
     </h1>
     <ol class="breadcrumb">
       <li class="active">
-        <i class="fa fa-dashboard"></i><strong>Original URL:</strong> <%= @link.full_link_address %>
+        <i class="fa fa-dashboard"></i> <strong>Original URL:</strong> <%= @link.full_link_address %>
       </li>
     </ol>
     <ol class="breadcrumb">
       <li class="active">
-        <i class="fa fa-dashboard"></i><strong>Shortened URL:</strong> <%= "#{root_url}" + @link.shortened_link_address %>
+        <i class="fa fa-dashboard"></i> <strong>Shortened URL:</strong> <%= "#{root_url}" + @link.shortened_link_address %>
       </li>
     </ol>
     <ol class="breadcrumb">
       <li class="active">
-        <i class="fa fa-dashboard"></i><strong>Created By:</strong> <%= get_link_creator_name @link %>
+        <i class="fa fa-dashboard"></i> <strong>Created By:</strong> <%= get_link_creator_name @link %>
       </li>
     </ol>
   </div>
@@ -119,7 +121,17 @@
     <h1 class="page-header">
         Top Users <small>Statistics</small>
     </h1>
-        <% @link.statistic.users.each do |user, count| %>
-          <%= user %> <%= count %>
-        <% end %>
+    <% if @top_users.empty? %>
+      <p class="user-info">No user has visited this site yet</p>
+    <% else %>
+      <table class="borderless">
+      <% @top_users.each do |detail| %>
+        <tr>
+          <td><p class="user-info"><%= detail[0].titleize %></td>
+          <td><span class="btn btn-primary"><%= detail[1] %></span></p></td>
+        </tr>
+      <% end %>
+    </table>
+    <% end %>
   </div>
+</div>

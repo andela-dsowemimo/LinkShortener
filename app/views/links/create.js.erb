@@ -1,6 +1,7 @@
 <% if flash[:success] || flash[:danger] %>
   <% flash.each do |message_type, message| %>
-    $('#flash-messages').html('<div class="alert alert-<%=message_type%>"><%= message %><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div>');
+    $('#flash-messages').html('<div class="alert alert-<%=message_type%>">' +
+    '<%= message %><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div>');
   <% flash[message_type] = nil %>
   <% end %>
 <% else %>

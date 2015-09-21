@@ -25,6 +25,10 @@ RSpec.describe UsersController, type: :controller do
       get :show, id: @daisi
       expect(response).to render_template(:show)
     end
+    it "assigns the correct user" do
+      get :show, id: @daisi
+      expect(assigns(:user)).to eq(@daisi)
+    end
   end
 
   describe "POST #create" do
@@ -38,7 +42,7 @@ RSpec.describe UsersController, type: :controller do
     context "non valid user" do
       it "renders new page" do
         post :create, user: attributes_for(:invalid_user)
-        expect(response).to render_template :new
+        expect(response).to redirect_to new_user_path
       end
     end
   end
